@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar{
+            overflow: hidden;
+            background-color: cadetblue;
+        }
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;}
+        .sticky{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .cont{
+            width: 100%;
+            top: 150px;
+            border-color: chartreuse;
+        }
+        .gridc{
+            top: 150px;
+            border-color: chartreuse;
+            grid-template-columns: auto, auto;
+        }
+        .grid-item{
+            padding: 10px ;
+            margin: 18px;
+            height: 25px;
+            width: 60%;
+            float: right;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gt1{
+          padding: 10px ;
+            margin: 18px;
+            height: 25px;
+            width: 110%;
+            float: right;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        .dm{
+            font-size: 1rem;
+            border-color: white;
+            border-radius: 34px;
+         }
+         .overlay {
+    
+    
+    background-image: 'img1.jpg';
+  height: 100%;
+  width: 0;
+  position: fixed;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  background-color: rgb(182, 134, 134);
+  background-color: rgba(253, 245, 135, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #3b3a3a;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #000000;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+.n2{
+  width: 100%;
+  height: 50px;
+  background-color: rgb(118, 118, 192);
+  border: 1px solid black;
+  position: relative;
+  animation-name: exp;
+  animation-duration: 3s;
+  animation-delay: -0.5s;
+  overflow: hidden;
+}
+@keyframes exp{
+  0%{background-color: chocolate; left:0px;}
+  50%{ background-color: chocolate;right: 800px; }
+  100%{ background-color: chocolate;right: 1000px;}
+} 
+n3{
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
+  background-color: rgb(212, 129, 163);
+  border: 1px solid black;
+  position: relative;
+  animation-name: exp1;
+  animation-duration: 3.5s;
+  animation-delay: -1s;
+}
+@keyframes exp1{
+  0%{background-color: chocolate; left:0px;}
+  50%{ background-color: chocolate;right: 800px;}
+  100%{ background-color: chocolate;right: 1000px;}
+} 
+.nav2{
+  top: 50px;
+  float: left;
+  box-shadow: 3px 3px 3px solid gray;
+  position: relative;
+  overflow: hidden;
+}
+.nav2 ul{
+  text-decoration: none;
+  list-style: none;
+
+}
+.nav2 ul li a{
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+    </style>
+</head>
+<body>
+   <div id="navbar" class="navbar">
+       <h1>Microprocessor & Microcontroller</h1>
+   </div>
+   <button onclick="myfunc()" class="dm" type="button">&#9728;</button><br><br>
+   <div class="nav2">
+      <ul>
+        <span style="font-size:16px;cursor:pointer;" onclick="openNav()">&#9776;</span><br><br>
+        <li><a href="index.html">Home</a></li><br><br>
+        <li><a href="#">Timing and Schedules</a></li><br><br>
+        <li><a target="_blank" href="https://www.google.com/">Google</a></li><br><br>
+        <li><a target="_blank" href="https://www.youtube.com/">Youtube</a></li><br><br>
+        <li><a target="_blank">8085</a></li><br><br>
+        <li><a target="_blank" href="https://www.tutorialspoint.com/microprocessor/microprocessor_8086_overview.htm#:~:text=8086%20Microprocessor%20is%20an%20enhanced,like%20multiplication%20and%20division%20easily.">8086</a></li><br><br>
+        <li><a target="_blank" href="https://classroom.google.com/u/0/h">Google Classroom</a></li><br><br>
+ 
+      </ul>
+   </div>
+   <div class="dark"  style="cursor: pointer;">
+       
+   </div>
+   
+   <div class="cont">
+       <div class="gridc">
+           <div class="grid-item"><a class="gt1" href="..\day 5\pdfs\8085-instruction-set.pdf">8085-instruction-set</a></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+           <div class="grid-item"></div>
+       </div>
+   </div>
+   <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="mpindex.html" class="n2">Microprocessor & Microcontroller</a>
+      <a href="deindex.html" class="n3">Digital Electronics</a>
+      <a href="mathindex.html" class="n2">Maths</a>
+      <a href="ssindex.html" class="n3">Signal & System</a>
+      <a href="labs.html" class="n2">Labs</a>
+    </div>
+  </div>
+</body>
+<script>
+    window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  function myfunc(){
+      var ele=document.body;
+      ele.classList.toggle('dark');
+  }
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+  </script>
+</html>

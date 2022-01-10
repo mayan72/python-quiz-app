@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page | Mayank Gupta</title>
+  <style>
+    body{
+      background-image: radial-gradient(circle, #c05353 15%, #85c996 100%);
+    }
+     .cont{
+            width: 100%;
+            top: 150px;
+            border-color: chartreuse;
+        }
+        .gridc{
+            top: 150px;
+            border-color: chartreuse;
+            grid-template-columns: auto, auto;
+        }
+        .grid-item{
+            padding: 14px ;
+            margin: 30px;
+            height: 75px;
+            width: 100%;
+            transition: transform .2s;
+            background-color: burlywood;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+      
+        .grid-item a{
+          list-style: none;
+          color: black;
+          font-size: 1.5rem;
+          text-decoration: none;
+        }
+        .grid-item:hover{
+          transform: scale(1.1);
+          border: 2px double black;
+          background-color: rgb(235, 69, 69);
+  cursor: pointer;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 3s ease-out;
+  -o-transition: background-color 3s ease-out;
+  transition: background-color 2s ease-out;
+        }
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        .dm{
+            font-size: 1rem;
+            border-color: white;
+            border-radius: 34px;
+            top: 10%;
+         }
+         .navbar{
+            overflow: hidden;
+            background-color: cadetblue;
+        }
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;}
+        .sticky{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .time{
+         float: right;
+          font-size: 1rem;
+            border-color: white;
+            border-radius: 34px;
+
+        }
+  </style>
+</head>
+<body>
+  <div id="navbar" class="navbar">
+    <h1>Artistry</h1>
+</div>
+<button onclick="myfunc()" class="dm" type="button">&#9728;</button>
+<button  id="clock" class="time" onclick="updateClock() ; setInterval('updateClock()', 1000)">Time</button>
+  <div class="cont">
+    <div class="gridc">
+      <div class="grid-item"><a  target="_blank" href="theroy.html">Theory</a></div>
+      <div class="grid-item"><a target="_blank" href="labs.html">Labs</a></div>
+        <div class="grid-item"><a target="_blank" href="X">Timing & Shedule</a></div>
+        <div class="grid-item"><a target="_blank" href="https://www.google.com/">Google</a></div>
+        <div class="grid-item"><a target="_blank" href="https://www.youtube.com/">Youtube</a></div>
+        <div class="grid-item"><a target="_blank" href="https://classroom.google.com/u/0/h">Google Classroom</a></div>
+        <div class="grid-item"><a target="_blank">Calculator</a></div>
+        <div class="grid-item"><a target="_blank" href="music.html">Music</a></div>
+        <div class="grid-item"><a target="_blank" href="music2.html">M2 </a></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+    </div>
+</div>
+</body>
+<script>
+   window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  function myfunc(){
+      var ele=document.body;
+      ele.classList.toggle('dark');
+  }
+  console.log("This is clock.js")
+
+function updateClock(){
+    // Get the current date
+    let currentTime = new Date();
+
+    // Extract hour, minute and seconds from the date
+    let currentHour = currentTime.getHours();
+    let currentMinutes = currentTime.getMinutes();
+    let currentSeconds = currentTime.getSeconds();
+
+    // Pad 0 if minute or second is less than 10 (single digit)
+    currentMinutes = (currentMinutes < 10 ? "0": "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0": "") + currentSeconds; 
+
+    // Convert railway clock to AM/PM clock
+    currentHour = (currentHour>12) ? currentHour - 12 : currentHour;
+    currentHour = (currentHour==0) ?  12 : currentHour;
+    
+    // Choose AM/PM as per the time of the day
+    let timeOfDay = (currentHour < 12 ) ? "AM" : "PM";
+
+    // Prepare the time string from hours, minutes and seconds
+    let currentTimeStr = currentHour + ":" + currentMinutes  
+                        + ":" + currentSeconds + " " + timeOfDay;
+                        document.getElementById("clock").innerHTML = currentTimeStr;
+
+    // Insert the time string inside the DOM
+}
+</script>
+</html>

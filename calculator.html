@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            display: inline-block;
+            /* margin-left: 550px;
+            margin-top: 110px; */
+            border: 2px solid black;
+            height: 400px;
+            width: 250px;
+        }
+        .screen{
+            border: 2px solid black;
+            width: 230px;
+            height: 50px;
+            align-items: center;
+        display: flex;
+        justify-content: center;
+        }
+    .val{
+        display: inline-block;
+        border: 1px solid grey;
+        height: 120px;
+        width: 150px;
+        align-items: center;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        margin-top: 23px;
+    }
+    #num{
+        overflow: hidden;
+    }
+    table{
+        border: 1px solid black;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 23px;
+    }
+    </style>
+</head>
+<body>
+        <div class="cont">
+            <div class="screen">
+                <div class="val">
+                    <input type="text" name="screen" id="screen"><br><br>
+                    <table><tr>    
+                        <td><button id="num" onclick="num">1</button></td>
+                        <td><button id="num" onclick="num">2</button></td>
+                        <td><button id="num" onclick="num">3</button></td>
+                        <td><button id="num" onclick="num">+</button></td>
+                    </tr>
+              
+                     <tr>
+                        <td><button id="num" onclick="num">4</button></td>
+                        <td><button id="num" onclick="num">5</button></td>
+                        <td><button id="num" onclick="num">6</button></td>
+                        <td><button id="num" onclick="num">-</button></td>
+                     </tr>
+                    <tr>
+                        <td> <button id="num" onclick="num">7</button></td>
+                        <td><button id="num" onclick="num">8</button></td>
+                        <td><button id="num" onclick="num">9</button></td>
+                        <td><button id="num" onclick="num">*</button></td>
+                    </tr>
+                   <tr>
+                    <td><button id="num" onclick="num">0</button></td>
+                    <td><button id="num" onclick="num">=</button></td>
+                     <td><button id="num" onclick="num">x</button></td>
+                     <td><button id="num" onclick="num">/</button></td>
+                   </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    let scr=document.getElementById('screen');
+     btn=document.querySelectorAll('button')
+     let scrval='';
+     for(i in btn){
+         i.addEventListener('click', (e)=>{
+             btntext=e.target.innerText;
+             console.log('btntext');
+         })
+     }
+</script>
+</html>

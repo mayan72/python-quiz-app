@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-image: radial-gradient(circle, #c05353 15%, #85c996 100%);
+    }
+
+.flip-box {
+  background-color: transparent;
+  width: 450px;
+  height: 200px;
+  perspective: 1000px;
+  gap: 4rem;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  gap: 3rem;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+  gap: 5rem;
+cursor:pointer;
+font-size: 1.6rem;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.flip-box-front h1{
+  text-align: center;
+  color: #000000;
+  font-size:2rem;
+cursor:pointer;
+font-size: 1.6rem;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+  font-size:2rem;
+cursor:pointer;
+font-size: 2rem;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+    .dark{
+            background-color: black;
+            color: white;
+        }
+        .dm{
+            font-size: 1rem;
+            border-color: white;
+            border-radius: 34px;
+            float: right;
+            position: absolute;
+            top: 5%;
+            right: 3%;
+         }
+         .overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  opacity: 0.98;
+  top: 0;
+  left: 0;
+  /* background-color: rgb(202, 176, 176); */
+  overflow-x: hidden;
+  transition: 0.5s;
+  opacity: 0.9;
+  background-image: radial-gradient(circle, #e0a8a8 0%, #96a099 80%);
+}
+.overlay a:hover{
+  opacity: 1;
+}
+.overlay-content {
+  position: relative;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #0f0f0f;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+}
+.nav2 a{
+font-size:2rem;
+cursor:pointer;
+padding: 22px;
+font-size: 2rem;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.n{
+  position: relative;
+text-align: center;
+}
+.nav1{
+  height: 50%;
+  width: 80%;
+  left: 300px;
+  text-align: center;
+  display: block;
+  float: right;
+
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #000000;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+img{
+  background-size: cover;
+  height: auto;
+  width: 100%;
+}
+.navleft{
+  /* position: absolute;
+  top: 3%; */
+  top:100px;
+  float: left;
+  box-shadow: 3px 3px 3px solid gray;
+  position: relative;
+  overflow: hidden;
+  color: aqua;
+  
+}
+.navleft li {
+  list-style: none;
+  font-size: 1rem;
+}
+.navleft a{
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: black;
+  color: aqua;
+}
+.navleft a:hover{
+  opacity: 0.9;
+  left: 4%;
+}
+.navbar{
+  background-color: blueviolet;
+  overflow: hidden;
+}
+.navbar h1{
+  font-size: 2.2rem;
+}
+.sticky{
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+.time{
+  font-size: 1rem;
+            border-color: white;
+            border-radius: 34px;
+            float: left;
+            top: 20%;
+}
+.boxer{
+  top: 30%;
+  float: right;
+  padding: 20px;
+  margin: 10px;
+  gap: 3rem;
+}
+  </style>
+</head>
+<body>
+   
+       <div class="n">
+         <div id="navbar" class="navbar">         
+            <h1>Labs</h1>
+            <div id="clock" class="time">
+              <button class="time" onclick="updateClock() ; setInterval('updateClock()', 1000)">Time</button>
+         </div> </div>
+         <div class="dm">
+          <button onclick="myfunc()" class="dm" type="button">&#9728;</button></div>
+         </div>
+         <div class="navleft">
+          <li><a href="index.html">&#127968;  Home</a></li><br><br>
+          <li><a href="#">&#8987;  Timing and Schedules</a></li><br><br>
+          <li><a target="_blank" href="https://www.google.com/"> &#127760;  Google</a></li><br><br>
+          <li><a target="_blank" href="https://www.youtube.com/"> &#9654;  Youtube</a></li><br><br>
+          <li><a target="_blank" href="https://classroom.google.com/u/0/h">&#128218;  Google Classroom</a></li><br><br>
+         </div>
+         <div id='nav1'class='nav1'>
+           <div class="boxer">
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <h2>Microprocessor & Microcontroller</h2>
+              </div>
+              <div class="flip-box-back">
+                <span class="nav2" onclick="openNav()">Click Here</span><br><br>
+              </div>
+            </div>
+          </div>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <h2>Digital Electronics</h2>
+              </div>
+              <div class="flip-box-back">
+                <span class='nav2' onclick="openNav2()">Click Here</span><br><br>
+              </div>
+            </div>
+          </div>
+          <div class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <h2>Analoge Electronics</h2>
+              </div>
+              <div class="flip-box-back">
+                <span class='nav2' onclick="openNav3()">Click Here</span><br><br>
+              </div>
+            </div>
+          </div>
+         </div>
+        
+        
+</div>
+   
+   <div id="myNav" class="overlay">
+    <a class="closebtn" onclick="closeNav()"> &#10007;</a>
+    <div class="overlay-content">
+      <a href="mpindex.html" class="n2">Experiment No. - 1</a>
+      <a href="deindex.html" class="n3">Experiment No. - 2</a>
+      <a href="mathindex.html" class="n2">Experiment No. - 3</a>
+      <a href="ssindex.html" class="n3">Experiment No. - 4</a>
+      <a href="labs.html" class="n2">Experiment No. - 5</a>
+      <a href="labs.html" class="n2">Experiment No. - 6</a>
+      <a href="labs.html" class="n2">Experiment No. - 6</a>
+      <a href="ssindex.html" class="n3">Experiment No. - 7</a>
+      <a href="labs.html" class="n2">Experiment No. - 8</a>
+      <a href="labs.html" class="n2">Experiment No. - 9</a>
+    </div>
+    <div id="myNav2" class="overlay">
+      <a  class="closebtn" onclick="closeNav2()"> &#10007;</a>
+      <div class="overlay-content">
+        <a href="mpindex.html" class="n2">Experiment No. - 1</a>
+        <a href="deindex.html" class="n3">Experiment No. - 2</a>
+        <a href="mathindex.html" class="n2">Experiment No. - 3</a>
+        <a href="ssindex.html" class="n3">Experiment No. - 4</a>
+        <a href="labs.html" class="n2">Experiment No. - 5</a>
+        <a href="labs.html" class="n2">Experiment No. - 6</a>
+        <a href="labs.html" class="n2">Experiment No. - 6</a>
+        <a href="ssindex.html" class="n3">Experiment No. - 7</a>
+        <a href="labs.html" class="n2">Experiment No. - 8</a>
+        <a href="labs.html" class="n2">Experiment No. - 9</a>
+      </div>
+      <div id="myNav3" class="overlay">
+        <a class="closebtn" onclick="closeNav3()"> &#10007;</a>
+        <div class="overlay-content">
+          <a href="mpindex.html" class="n2">Experiment No. - 1</a>
+      <a href="deindex.html" class="n3">Experiment No. - 2</a>
+      <a href="mathindex.html" class="n2">Experiment No. - 3</a>
+      <a href="ssindex.html" class="n3">Experiment No. - 4</a>
+      <a href="labs.html" class="n2">Experiment No. - 5</a>
+      <a href="labs.html" class="n2">Experiment No. - 6</a>
+      <a href="ssindex.html" class="n3">Experiment No. - 7</a>
+      <a href="labs.html" class="n2">Experiment No. - 8</a>
+      <a href="labs.html" class="n2">Experiment No. - 9</a>
+        </div>
+   <div class="dark"  style="cursor: pointer;">
+       
+   </div>
+   <div class="n2">
+     
+   </div>
+</body>
+<script>
+function myfunc(){
+      var ele=document.body;
+      ele.classList.toggle('dark');
+  }
+  function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  document.getElementById('nav1').style.opacity=0.2;
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementById('nav1').style.opacity=1;
+}
+function openNav2() {
+  document.getElementById("myNav2").style.width = "100%";
+  document.getElementById('nav1').style.opacity=0.2;
+}
+
+function closeNav2() {
+  document.getElementById("myNav2").style.width = "0%";
+  document.getElementById('nav1').style.opacity=1;
+}
+function openNav3() {
+  document.getElementById("myNav3").style.width = "100%";
+  document.getElementById('nav1').style.opacity=0.2;
+}
+
+function closeNav3() {
+  document.getElementById("myNav3").style.width = "0%";
+  document.getElementById('nav1').style.opacity=1;
+}
+console.log("This is clock.js")
+
+function updateClock(){
+    // Get the current date
+    let currentTime = new Date();
+
+    // Extract hour, minute and seconds from the date
+    let currentHour = currentTime.getHours();
+    let currentMinutes = currentTime.getMinutes();
+    let currentSeconds = currentTime.getSeconds();
+
+    // Pad 0 if minute or second is less than 10 (single digit)
+    currentMinutes = (currentMinutes < 10 ? "0": "") + currentMinutes;
+    currentSeconds = (currentSeconds < 10 ? "0": "") + currentSeconds; 
+
+    // Convert railway clock to AM/PM clock
+    currentHour = (currentHour>12) ? currentHour - 12 : currentHour;
+    currentHour = (currentHour==0) ?  12 : currentHour;
+    
+    // Choose AM/PM as per the time of the day
+    let timeOfDay = (currentHour < 12 ) ? "AM" : "PM";
+
+    // Prepare the time string from hours, minutes and seconds
+    let currentTimeStr = currentHour + ":" + currentMinutes  
+                        + ":" + currentSeconds + " " + timeOfDay;
+                        document.getElementById("clock").innerHTML = currentTimeStr;
+
+    // Insert the time string inside the DOM
+}
+window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+
+</script>
+</html>
+
+

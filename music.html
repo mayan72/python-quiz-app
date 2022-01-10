@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+</head>
+<style> 
+body{
+  position: relative;
+  text-align: center;
+  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+  background-image: radial-gradient(circle, #c08643 0%, #d6b65d 10%, #a5c23d 20%, #44ad97 30%, #5a90c2 40%, #b643c0 50%, #d6b65d 60%, #a5c23d 70%, #44ad97 80%, #5a90c2 90%, #dbd955b7 100%); 
+  background-size: 400% 400%;
+	animation: gradient 45s ease infinite;
+  font-family: 'Cookie', cursive;
+font-family: 'Kaushan Script', cursive;
+
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 20%;
+	}
+  20%{
+    background-position: 20% 40%;
+  }
+  40%{
+    background-position: 40% 60%;
+  }
+  60%{
+    background-position: 60% 80%;
+  }
+  80%{
+    background-position: 100% 80%;
+  }
+	90% {
+		background-position: 80% 50%;
+	}
+
+	100% {
+		background-position: 50% 0%;
+	}
+}
+.plyer{
+ position: absolute;
+ right: 100px;
+ width: 50%;
+ height: 600px;
+ background-color: cadetblue;
+ text-align: center;
+ border: 2px solid black;
+ background-image: radial-gradient(circle, #c04343 0%, #89ddee 100%);
+  overflow: hidden;
+}
+
+.imgn{
+  padding: 47px;
+  margin: 15px;
+  height: 200px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  overflow: hidden;
+  /* background-image: url("https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"); */
+  background-size: cover;
+  border-radius: 15%;
+  box-shadow: 0 0 27px black;
+}
+.prev{
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px;
+  opacity: 0.9;
+}
+.prev:hover{
+  size: 20px;
+  opacity: 1;
+  transform: scale(1.1);
+  
+}
+.ppt{
+  display: inline-block;
+  padding: 10px;
+  overflow: hidden;
+  opacity: 0.9;
+  
+}
+.ppt:hover{
+  size: 20px;
+  opacity: 1;
+  transform: scale(1.1);
+
+}
+.nt{
+  display: inline-block;
+  overflow: hidden;
+  padding: 10px;
+  opacity: 0.9;
+}
+.nt:hover{
+  size: 20px;
+  opacity: 1;
+  transform: scale(1.1);
+}
+.song{
+  overflow: hidden;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 2.5rem;
+}
+.song:hover{
+  transform: scale(1.3);
+}
+.artist{
+  overflow: hidden;
+  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.artist:hover{
+  transform: scale(1.3);
+}
+.left{
+  float: left;
+  padding: 8px;
+  border-radius: 30px;
+}
+.left button{
+  background-color: transparent;
+  border: transparent;
+  size: 40px;
+}
+.left ul{
+  text-decoration: none;
+  list-style: none;
+}
+.left ul li{
+  text-decoration: none;
+  list-style: none;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.fa-heart{
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+.red-color{
+  color: red;
+}
+.white-color{
+  color: white;
+}
+</style>
+<body>
+  <div class="left">
+    <ul>
+      <li>
+        <button><a href="index.html">&#8962; Home</a></button>
+      </li>
+    </ul>
+        </div>
+  <div  class="player">
+   
+    <div id="song" class="song">Song</div>
+    <div id="artist" class="artist">Artist</div>
+    <div id="imgn" class="imgn">
+    </div>
+    <div id="nowply" class="nowplay">Now Playing  </div>
+    <br>
+  
+    <div class="buttons">
+      <div id="prevt" class="prev" onclick="prevt()"><i class="fa fa-step-backward fa-2x"></i></div>
+      <div id="ppt" class="ppt" onclick="ppts()"><i class="fa fa-play-circle fa-5x"></i></div>
+      <div id="nt" class="nt" onclick="nts()"><i class="fa fa-step-forward fa-2x"></i></div><br>
+      <div onclick="likes()" id="like" class="like" ><i  class="fa fa-heart fa-2.5x" ></i></div>
+      <div onclick="rlikes()" id="rlike" class="rlike" ><i  class="fa fa-heart fa-2.5x" ></i></div>
+    </div>
+    
+  </div>
+
+
+</body>
+<script>
+  let isPlaying = false;
+  let tracklist =[
+  {
+    "name": "Barish",
+    "artist": " Payal Dev, Stebin Ben | Hina Khan, Shaheer Sheikh | Kunaal Vermaa",
+    "image": "https://media.newstracklive.com/uploads/entertainment-news/television-news/May/29/big_thumb/HINA-KHAN_60b1f064e7dd5.PNG?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+   " path": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
+  },
+  {
+    "name": "Enthusi",
+   " artist": "gyki",
+    "image": "https://images.pexels.com/photos/3100835/pexels-photo-3100835.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+    "path": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3"
+  },
+  {
+    "name": "Shipping Lanes",
+    "artist": "Chad Crouch",
+    "image": "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+    "path": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
+  },
+  {
+    "name": "Shipping Lanes",
+    "artist": "Chad Crouch",
+    "image": "https://images.pexels.com/photos/1717969/pexels-photo-1717969.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=250&w=250",
+    "path": "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Chad_Crouch/Arps/Chad_Crouch_-_Shipping_Lanes.mp3",
+  },
+];
+var str = JSON.stringify(tracklist);
+var prs=JSON.parse(str)
+console.log(prs[0].name);
+let track_index=0;
+let curr_track = document.createElement('audio');
+
+
+function loadTrack(track_index) {
+  curr_track.src = tracklist[track_index].path;
+  curr_track.load();
+
+
+  let trname = document.getElementById('song').innerHTML=tracklist[track_index].name;
+  let trart = document.getElementById('artist').innerHTML=tracklist[track_index].artist;
+  let nplay = document.getElementById('nowply').innerHTML="PLAYING " + (track_index + 1) + " OF " + tracklist.length;;
+   let track_art=document.getElementById('imgn').style.backgroundImage = "url(" + tracklist[track_index].image + ")";
+
+   curr_track.addEventListener("ended", nextTrack);  
+};
+
+
+
+loadTrack(track_index);
+let playpause_btn=document.querySelector('.ppt')
+let next_btn=document.querySelector('.nt')
+let previous_btn=document.querySelector('.prev')
+let lks=document.querySelector('.like')
+let rlks=document.querySelector('.rlike')
+
+function ppts() {
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
+
+function playTrack() {
+  curr_track.play();
+  isPlaying = true;
+  var playpause_btn=document.getElementById('ppt').innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+}
+
+function pauseTrack() {
+  curr_track.pause();
+  isPlaying = false;
+  playpause_btn= document.getElementById('ppt').innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';;
+}
+
+function nts() {
+  if (track_index < tracklist.length - 1)
+    track_index += 1;
+  else track_index = 0;
+  loadTrack(track_index);
+  playTrack();
+}
+
+function prevt() {
+  if (track_index > 0)
+    track_index -= 1;
+  else track_index = tracklist.length;
+  loadTrack(track_index);
+  playTrack();
+}
+function likes() {
+lks=document.getElementById('like').innerHTML='<i class="fa fa-heart red-color fa-3x"></i>';
+}
+function rlikes() {
+rlks=document.getElementById('rlike').innerHTML='<i class="fa fa-heart white-color fa-2.5x"></i>';
+}
+</script>
+</html>
